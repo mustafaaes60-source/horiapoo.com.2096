@@ -3,42 +3,24 @@
 // ==========================================
 
 const SITE_SEO = {
-  // العنوان اللي بيظهر في جوجل
   title: "مقاول مسابح بالرياض | شركة حورية لإنشاء وصيانة المسابح والشلالات 0550055284",
-
-  // الوصف اللي بيظهر تحت العنوان في جوجل
   description: "أفضل مقاول مسابح بالرياض - شركة حورية لانشاء وتصميم وبناء وصيانة مسابح وشلالات وبحيرات صناعية بالرياض، جودة عالية وأسعار تنافسية، اتصل الآن 0550055284",
-
-  // الكلمات المفتاحية
   keywords: "مقاول مسابح بالرياض, مقاول مسابح, أفضل مقاول مسابح بالرياض, شركة مسابح بالرياض, انشاء مسابح بالرياض, بناء مسابح بالرياض, تصميم مسابح بالرياض, صيانة مسابح بالرياض, تنظيف مسابح بالرياض, شركة حورية للمسابح, انشاء شلالات بالرياض, تعديل مسابح بالرياض, بناء احواض سباحة بالرياض, ترميم مسابح بالرياض, شركة حورية دبي",
-
-  // الكلمة الافتتاحية الكبيرة اللي جوه الموقع
   h1: "مقاول مسابح بالرياض - شركة حورية",
-
-  // الجملة الترحيبية اللي تحتها
   welcome: "أفضل مقاول مسابح بالرياض، متخصصون في انشاء وتصميم وبناء وصيانة مسابح وشلالات وبحيرات صناعية، جودة عالية وأسعار تنافسية في الرياض، تواصل معنا الآن",
-
-  // رقم التواصل
   phone: "0550055284",
-
-  // عنوان فرعي ثاني
   h2: "أفضل مقاول مسابح وانشاء مسابح بالرياض",
-
-  // ===== زرار المتجر =====
   storeLink: "https://horiapool.com/shop/",
-  storeText: "🛒 تسوق من المتجر"
+  storeText: "🛒 المتجر"
 };
 
 // ==========================================
-// من هنا لتحت متلمسش حاجة، ده كود التحديث
+// من هنا لتحت متلمسش حاجة
 // ==========================================
 
 document.addEventListener("DOMContentLoaded", function() {
-
-  // 1. تحديث العنوان
   document.title = SITE_SEO.title;
 
-  // 2. تحديث الوصف
   let metaDesc = document.querySelector('meta[name="description"]');
   if (!metaDesc) {
     metaDesc = document.createElement('meta');
@@ -47,7 +29,6 @@ document.addEventListener("DOMContentLoaded", function() {
   }
   metaDesc.setAttribute('content', SITE_SEO.description);
 
-  // 3. تحديث الكلمات المفتاحية
   let metaKey = document.querySelector('meta[name="keywords"]');
   if (!metaKey) {
     metaKey = document.createElement('meta');
@@ -56,49 +37,50 @@ document.addEventListener("DOMContentLoaded", function() {
   }
   metaKey.setAttribute('content', SITE_SEO.keywords);
 
-  // 4. تحديث H1
   let h1 = document.querySelector('h1');
   if (h1) h1.textContent = SITE_SEO.h1;
 
-  // 5. تحديث النص الترحيبي
   let welcome = document.getElementById('welcome-text');
   if (welcome) welcome.textContent = SITE_SEO.welcome;
 
-  // 6. تحديث H2
   let h2 = document.querySelector('h2');
   if (h2) h2.textContent = SITE_SEO.h2;
 
-  // 7. تحديث أرقام التليفون
   let phones = document.querySelectorAll('.phone-number');
   phones.forEach(function(el) {
     el.textContent = SITE_SEO.phone;
   });
 
-  // 8. إضافة زرار المتجر - لو مش موجود قبل كده
-  if (!document.getElementById('store-btn')) {
+  // 8. ظبط الـ 3 أزرار جوه .cta
+  let cta = document.querySelector('.cta');
+  if (cta) {
+    // امسح أي زر متجر قديم عشان ميعملش تكرار
+    let oldStoreBtns = cta.querySelectorAll('a[href*="/shop"], #store-btn, .btn-store');
+    oldStoreBtns.forEach(function(b){ b.remove(); });
+
+    // اعمل زر المتجر البرتقالي الجديد
     let btn = document.createElement('a');
     btn.id = 'store-btn';
     btn.href = SITE_SEO.storeLink;
-    btn.target = '_blank';
     btn.textContent = SITE_SEO.storeText;
+    // نفس ستايل باقي الأزرار + برتقالي
     btn.style.display = 'inline-block';
-    btn.style.background = '#16a34a';
+    btn.style.background = '#ff9f1c';
     btn.style.color = '#fff';
-    btn.style.padding = '14px 28px';
-    btn.style.borderRadius = '10px';
+    btn.style.padding = '14px 30px';
+    btn.style.borderRadius = '30px';
     btn.style.fontSize = '18px';
     btn.style.fontWeight = 'bold';
     btn.style.textDecoration = 'none';
-    btn.style.marginTop = '15px';
 
-    // حطه بعد الجملة الترحيبية لو موجودة، غير كده بعد H1
-    if (welcome) {
-      welcome.after(btn);
-    } else if (h1) {
-      h1.after(btn);
+    // حطه في النص: بعد أول زر (خدماتنا) وقبل آخر زر (اتصل بنا)
+    let buttons = cta.querySelectorAll('a');
+    if (buttons.length >= 2) {
+      buttons[0].after(btn);
+    } else if (buttons.length === 1) {
+      buttons[0].after(btn);
     } else {
-      document.body.prepend(btn);
+      cta.appendChild(btn);
     }
   }
-
 });
