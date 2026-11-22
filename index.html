@@ -3,69 +3,121 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>شركة حور لمسابح الرياض</title>
+<title>شركة حورية دبي - حورية للمسابح بالرياض</title>
 <meta name="description" content="">
 <meta name="keywords" content="">
 <style>
   *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma,sans-serif}
-  body{background:#f0f7ff;color:#222}
-  header{background:linear-gradient(135deg,#0077b6,#00b4d8);color:#fff;padding:50px 20px;text-align:center}
-  header h1{font-size:32px;margin-bottom:15px}
-  header p{font-size:18px;opacity:.95}
-  .cta{margin-top:25px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-  .cta a{background:#fff;color:#0077b6;padding:14px 30px;border-radius:30px;text-decoration:none;font-weight:bold;font-size:18px;display:inline-block}
-  .cta a.btn-store{background:#ff9f1c !important;color:#fff !important}
-  .container{max-width:900px;margin:30px auto;padding:0 20px}
-  .box{background:#fff;padding:25px;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,.08);margin-bottom:20px}
-  .box h2{color:#0077b6;margin-bottom:12px}
-  .box ul{list-style:none}
-  .box ul li{padding:10px 0;border-bottom:1px solid #eee;font-size:17px}
-  .box ul li:before{content:"✅ "}
-  .phone{font-size:26px;font-weight:bold;color:#0077b6;text-align:center;margin:20px 0}
+  body{background:#fff;color:#222;overflow-x:hidden}
+  a{text-decoration:none}
+  /* الهيدر */
+  header{position:absolute;top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:15px 40px;background:linear-gradient(to bottom,rgba(0,0,0,.65),transparent)}
+  .logo{display:flex;align-items:center;gap:10px;color:#fff;font-weight:bold;font-size:18px;line-height:1.3}
+  .logo span{font-size:11px;letter-spacing:2px;opacity:.9}
+  .logo-img{width:55px;height:55px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px}
+  nav{display:flex;gap:22px;align-items:center}
+  nav a{color:#fff;font-size:16px;font-weight:600}
+  nav a.active{color:#00cfff}
+  .btn-order{background:#0077b6;color:#fff !important;padding:10px 22px;border-radius:30px;display:flex;align-items:center;gap:6px}
+  .btn-store-nav{background:#ff9f1c !important;color:#fff !important;padding:10px 22px;border-radius:30px;font-weight:bold}
+  /* الهيرو */
+  .hero{height:100vh;min-height:600px;background:url('https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=1600&q=80') center/cover no-repeat;position:relative;display:flex;align-items:center;justify-content:flex-end;padding:0 6%}
+  .hero:before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.25)}
+  .hero-content{position:relative;z-index:2;text-align:right;max-width:600px;color:#fff}
+  .hero-content h1{font-size:42px;color:#00cfff;margin-bottom:10px}
+  .hero-content p{font-size:22px;margin-bottom:30px}
+  .hero-btns{display:flex;gap:15px}
+  .hero-btns a{padding:13px 35px;border-radius:30px;font-weight:bold;font-size:17px}
+  .btn-blue{background:#00b4d8;color:#fff}
+  .btn-dark{background:#023e8a;color:#fff;border:2px solid rgba(255,255,255,.4)}
+  /* الاقسام */
+  .container{max-width:1100px;margin:40px auto;padding:0 20px}
+  .box{background:#f0f7ff;padding:30px;border-radius:15px;margin-bottom:20px}
+  .box h2{color:#0077b6;margin-bottom:15px;font-size:26px}
+  .box p{font-size:17px;line-height:1.9}
+  .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;margin-top:20px}
+  .service{background:#fff;padding:20px;border-radius:12px;box-shadow:0 5px 15px rgba(0,0,0,.06);font-size:17px}
+  .service:before{content:"✅ "}
+  .phone{font-size:28px;font-weight:bold;color:#0077b6;text-align:center;margin:20px 0}
   footer{background:#023e8a;color:#fff;text-align:center;padding:20px;font-size:15px}
+  .float{position:fixed;left:20px;bottom:90px;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;z-index:99;box-shadow:0 5px 15px rgba(0,0,0,.3);color:#fff}
+  .float-call{background:#25D366;bottom:155px}
+  .float-wa{background:#25D366;bottom:90px}
+  @media(max-width:768px){
+    header{padding:12px 15px;flex-wrap:wrap}
+    nav{gap:10px;flex-wrap:wrap;font-size:14px}
+    .hero{justify-content:center;text-align:center;padding:0 20px}
+    .hero-content{text-align:center}
+    .hero-content h1{font-size:32px}
+    .hero-btns{justify-content:center}
+  }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>شركة حور لمسابح الرياض</h1>
-  <p id="welcome-text">جاري تحميل...</p>
-  <div class="cta">
-    <a href="#services">خدماتنا</a>
-    <a id="store-btn" href="https://horiapool.com/shop/" class="btn-store" style="background:#ff9f1c;color:#fff">🛒 المتجر</a>
-    <a href="tel:0550055284">اتصل بنا: <span class="phone-number">0550055284</span></a>
+  <div style="display:flex;align-items:center;gap:15px">
+    <a href="tel:0550055284" class="btn-order">📞 طلب خدمة</a>
+    <nav>
+      <a href="https://horiapool.com/shop/" class="btn-store-nav" id="store-btn">🛒 المتجر</a>
+      <a href="#contact">تواصل معنا</a>
+      <a href="#services">اعمالنا</a>
+      <a href="#services">خدماتنا</a>
+      <a href="#">عن حورية دبي</a>
+      <a href="#" class="active">الرئيسية</a>
+    </nav>
+  </div>
+  <div class="logo">
+    <div>
+      شركة حورية دبي<br><span>HOURIA DUBAI</span><br><span style="font-size:12px;letter-spacing:0">للمسابح والشلالات</span>
+    </div>
+    <div class="logo-img">⚙️</div>
   </div>
 </header>
 
+<section class="hero">
+  <div class="hero-content">
+    <h1>معنا.. المسبح له معنى</h1>
+    <p id="welcome-text">حورية للمسابح بالرياض</p>
+    <div class="hero-btns">
+      <a href="tel:0550055284" class="btn-blue">اتصل بنا</a>
+      <a href="#services" class="btn-dark">خدماتنا</a>
+    </div>
+  </div>
+</section>
+
 <div class="container">
   <div class="box">
-    <h2>افضل شركة انشاء مسابح بالرياض</h2>
-    <p style="font-size:17px;line-height:1.8">نقدم خدمات متكاملة في تصميم، انشاء، وصيانة المسابح والشلالات والبحيرات الصناعية في الرياض، مع التركيز على الجودة والدقة والالتزام بالمواعيد.</p>
+    <h2>أفضل مقاول مسابح وانشاء مسابح بالرياض</h2>
+    <p>نقدم خدمات متكاملة في تصميم، انشاء، وصيانة المسابح والشلالات والبحيرات الصناعية في الرياض، مع التركيز على الجودة والدقة والالتزام بالمواعيد. أفضل مقاول مسابح بالرياض، متخصصون في انشاء وتصميم وبناء وصيانة مسابح وشلالات وبحيرات صناعية، جودة عالية وأسعار تنافسية في الرياض.</p>
   </div>
 
   <div class="box" id="services">
     <h2>خدماتنا</h2>
-    <ul>
-      <li>تصميم مسابح مخصصة حسب ذوقك ومساحتك</li>
-      <li>انشاء مسابح خرسانية وفايبر جلاس</li>
-      <li>صيانة وتنظيف مسابح دورية</li>
-      <li>انشاء شلالات وبحيرات صناعية</li>
-      <li>تركيب أنظمة تنقية وتعقيم حديثة</li>
-      <li>أسعار تنافسية وضمان على التنفيذ</li>
-    </ul>
+    <div class="services">
+      <div class="service">تصميم مسابح مخصصة حسب ذوقك ومساحتك</div>
+      <div class="service">انشاء مسابح خرسانية وفايبر جلاس</div>
+      <div class="service">صيانة وتنظيف مسابح دورية</div>
+      <div class="service">انشاء شلالات وبحيرات صناعية</div>
+      <div class="service">تركيب أنظمة تنقية وتعقيم حديثة</div>
+      <div class="service">أسعار تنافسية وضمان على التنفيذ</div>
+    </div>
   </div>
 
   <div class="box" id="contact">
     <h2>تواصل معنا</h2>
     <div class="phone">📞 <span class="phone-number">0550055284</span></div>
-    <p style="text-align:center;font-size:17px">متاحين في جميع أحياء الرياض - اتصل الآن واحصل على معاينة مجانية</p>
+    <p style="text-align:center">متاحين في جميع أحياء الرياض - اتصل الآن واحصل على معاينة مجانية</p>
   </div>
 </div>
 
+<a href="tel:0550055284" class="float float-call">📞</a>
+<a href="https://wa.me/966550055284" class="float float-wa">💬</a>
+
 <footer>
-  جميع الحقوق محفوظة © شركة حور لمسابح الرياض | <span class="phone-number">0550055284</span>
+  جميع الحقوق محفوظة © شركة حورية دبي - حورية للمسابح بالرياض | <span class="phone-number">0550055284</span>
 </footer>
 
-<script src="keywords.js?v=12"></script>
+<script src="keywords.js?v=13"></script>
 </body>
 </html>
