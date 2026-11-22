@@ -37,8 +37,10 @@ document.addEventListener("DOMContentLoaded", function() {
   }
   metaKey.setAttribute('content', SITE_SEO.keywords);
 
-  let h1 = document.querySelector('h1');
-  if (h1) h1.textContent = SITE_SEO.h1;
+  // شلت تعديل الـ h1 عشان جملة "معنا.. المسبح له معنى" تفضل زي ما هي في التصميم الأصلي
+  // لو عايز ترجعها، فك التعليق من السطرين اللي تحت
+  // let h1 = document.querySelector('h1');
+  // if (h1) h1.textContent = SITE_SEO.h1;
 
   let welcome = document.getElementById('welcome-text');
   if (welcome) welcome.textContent = SITE_SEO.welcome;
