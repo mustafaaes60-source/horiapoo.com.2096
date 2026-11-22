@@ -51,36 +51,12 @@ document.addEventListener("DOMContentLoaded", function() {
     el.textContent = SITE_SEO.phone;
   });
 
-  // 8. ظبط الـ 3 أزرار جوه .cta
-  let cta = document.querySelector('.cta');
-  if (cta) {
-    // امسح أي زر متجر قديم عشان ميعملش تكرار
-    let oldStoreBtns = cta.querySelectorAll('a[href*="/shop"], #store-btn, .btn-store');
-    oldStoreBtns.forEach(function(b){ b.remove(); });
-
-    // اعمل زر المتجر البرتقالي الجديد
-    let btn = document.createElement('a');
-    btn.id = 'store-btn';
-    btn.href = SITE_SEO.storeLink;
-    btn.textContent = SITE_SEO.storeText;
-    // نفس ستايل باقي الأزرار + برتقالي
-    btn.style.display = 'inline-block';
-    btn.style.background = '#ff9f1c';
-    btn.style.color = '#fff';
-    btn.style.padding = '14px 30px';
-    btn.style.borderRadius = '30px';
-    btn.style.fontSize = '18px';
-    btn.style.fontWeight = 'bold';
-    btn.style.textDecoration = 'none';
-
-    // حطه في النص: بعد أول زر (خدماتنا) وقبل آخر زر (اتصل بنا)
-    let buttons = cta.querySelectorAll('a');
-    if (buttons.length >= 2) {
-      buttons[0].after(btn);
-    } else if (buttons.length === 1) {
-      buttons[0].after(btn);
-    } else {
-      cta.appendChild(btn);
-    }
+  // ظبط زر المتجر اللي موجود في HTML، متعملش واحد جديد ومتحذفش القديم
+  let storeBtn = document.getElementById('store-btn');
+  if (storeBtn) {
+    storeBtn.href = SITE_SEO.storeLink;
+    storeBtn.textContent = SITE_SEO.storeText;
+    storeBtn.style.background = '#ff9f1c';
+    storeBtn.style.color = '#fff';
   }
 });
